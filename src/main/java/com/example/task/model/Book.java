@@ -2,9 +2,7 @@ package com.example.task.model;
 
 import lombok.*;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class Book {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
