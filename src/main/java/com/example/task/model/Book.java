@@ -16,6 +16,7 @@ public class Book {
     private Long id;
 
     @NotNull
+    @Column(unique = true)
     private Integer position;
 
     @NotNull
