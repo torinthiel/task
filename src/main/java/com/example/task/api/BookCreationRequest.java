@@ -1,5 +1,6 @@
 package com.example.task.api;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +20,7 @@ public class BookCreationRequest {
     private String title;
 
     @NotNull
+    @JsonProperty("author")
     private AuthorCreationRequest authorCreationRequest;
 
     @NotNull
