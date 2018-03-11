@@ -13,8 +13,8 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class AuthorCreationRequest {
     @NotNull
-    private String firstname;
+    private String firstName;
 
     @NotNull
-    private String lastname;
+    private String lastName;
 }

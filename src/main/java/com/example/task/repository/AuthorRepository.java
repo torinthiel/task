@@ -1,7 +1,7 @@
 package com.example.task.repository;
 
-/**
- * Created by jaroslawj on 11.03.18.
- */
-public interface AuthorRepository {
+import com.example.task.model.Author;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AuthorRepository extends JpaRepository<Author, Long> {
 }
