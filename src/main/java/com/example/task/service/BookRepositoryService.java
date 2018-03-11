@@ -26,34 +26,18 @@ public class BookRepositoryService implements BookService {
 
     @Override
     public List<Book> getBooks() {
-
-        log.trace("getBooks launched");
-
-        List<Book> books = bookRepository.findAll();
-
-        log.trace("getBooks finished");
-        return books;
+       List<Book> books = bookRepository.findAll();
+       return books;
     }
 
     @Override
     public Book create(BookCreationRequest request) {
-        log.trace("create launched");
-
         Book book = bookRepository.save(bookMapper.map(request));
-
-        log.trace("create finished");
-
         return book;
     }
 
     @Override
     public void delete(@NotNull Long id) {
-        log.trace("delete started");
-
         bookRepository.deleteById(id);
-
-        log.trace("delete finished");
     }
-
-
 }
