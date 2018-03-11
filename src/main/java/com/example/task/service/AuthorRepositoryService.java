@@ -5,10 +5,12 @@ import com.example.task.mapper.AuthorMapper;
 import com.example.task.model.Author;
 import com.example.task.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Service
 public class AuthorRepositoryService implements AuthorService {
 
     private AuthorRepository repository;

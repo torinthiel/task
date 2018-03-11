@@ -7,7 +7,10 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public interface BookService {
-    List<Book> getBooks();
+
     Book create(BookCreationRequest request);
+
+    List<Book> getBooks();
+
     void delete(@NotNull Long Id);
 }

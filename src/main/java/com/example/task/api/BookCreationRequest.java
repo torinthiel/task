@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @Builder
@@ -20,8 +21,8 @@ public class BookCreationRequest {
     private String title;
 
     @NotNull
-    @JsonProperty("author")
-    private AuthorCreationRequest authorCreationRequest;
+    @JsonProperty("authors")
+    private Set<Long> authorIds;
 
     @NotNull
     private Integer year;
