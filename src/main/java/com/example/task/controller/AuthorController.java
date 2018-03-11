@@ -1,6 +1,7 @@
 package com.example.task.controller;
 
 import com.example.task.api.AuthorCreationRequest;
+import com.example.task.api.AuthorSnapshot;
 import com.example.task.model.Author;
 import com.example.task.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,12 @@ public class AuthorController {
     }
 
     @PostMapping
-    public Author create(@RequestBody AuthorCreationRequest request) {
+    public AuthorSnapshot create(@RequestBody AuthorCreationRequest request) {
         return service.create(request);
     }
 
     @GetMapping
-    public List<Author> get() {
+    public List<AuthorSnapshot> get() {
         return service.getAuthors();
     }
 

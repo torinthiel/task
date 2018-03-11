@@ -24,10 +24,10 @@ public class Author {
     private Long id;
 
     @NotNull
-    private String firstname;
+    private String firstName;
 
     @NotNull
-    private String lastname;
+    private String lastName;
 
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books;

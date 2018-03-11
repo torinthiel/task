@@ -1,14 +1,15 @@
 package com.example.task.service;
 
 import com.example.task.api.AuthorCreationRequest;
+import com.example.task.api.AuthorSnapshot;
 import com.example.task.mapper.AuthorMapper;
-import com.example.task.model.Author;
 import com.example.task.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AuthorRepositoryService implements AuthorService {
@@ -23,13 +24,14 @@ public class AuthorRepositoryService implements AuthorService {
     }
 
     @Override
-    public Author create(AuthorCreationRequest request) {
-        return repository.save(mapper.map(request));
+    public AuthorSnapshot create(AuthorCreationRequest request) {
+        return mapper.map(repository.save(mapper.map(request)));
     }
 
     @Override
-    public List<Author> getAuthors() {
-        return repository.findAll();
+    public List<AuthorSnapshot> getAuthors() {
+        return
+                repository.findAll().stream().map(a -> mapper.map(a)).collect(Collectors.toList());
     }
 
     @Override

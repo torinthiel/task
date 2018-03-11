@@ -1,6 +1,7 @@
 package com.example.task.service;
 
 import com.example.task.api.AuthorCreationRequest;
+import com.example.task.api.AuthorSnapshot;
 import com.example.task.model.Author;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +11,9 @@ import java.util.List;
 @Service
 public interface AuthorService {
 
-    Author create(AuthorCreationRequest request);
+    AuthorSnapshot create(AuthorCreationRequest request);
 
-    List<Author> getAuthors();
+    List<AuthorSnapshot> getAuthors();
 
     void delete(@NotNull Long id);
 }
