@@ -1,16 +1,16 @@
 package com.example.task.service;
 
 import com.example.task.api.BookCreationRequest;
-import com.example.task.model.Book;
+import com.example.task.api.BookSnapshot;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 public interface BookService {
 
-    Book create(BookCreationRequest request);
+    BookSnapshot create(BookCreationRequest request);
 
-    List<Book> getBooks();
+    List<BookSnapshot> getBooks();
 
     void delete(@NotNull Long Id);
 }

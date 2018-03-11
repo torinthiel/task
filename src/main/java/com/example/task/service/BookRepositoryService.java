@@ -1,6 +1,7 @@
 package com.example.task.service;
 
 import com.example.task.api.BookCreationRequest;
+import com.example.task.api.BookSnapshot;
 import com.example.task.mapper.BookMapper;
 import com.example.task.model.Book;
 import com.example.task.repository.BookRepository;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -25,16 +27,14 @@ public class BookRepositoryService implements BookService {
     }
 
     @Override
-    public List<Book> getBooks() {
-       List<Book> books = bookRepository.findAll();
-       return books;
+    public List<BookSnapshot> getBooks() {
+       return bookRepository.findAll().stream().map(b -> bookMapper.map(b)).collect(Collectors.toList());
     }
 
     @Override
-    public Book create(BookCreationRequest request) {
-        Book book = bookRepository.save(bookMapper.map(request));
-        return book;
-    }
+    public BookSnapshot create(BookCreationRequest request) {
+        return bookMapper.map(bookRepository.save(bookMapper.map(request)));
+   }
 
     @Override
     public void delete(@NotNull Long id) {
