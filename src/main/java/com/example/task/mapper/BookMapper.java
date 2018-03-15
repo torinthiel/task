@@ -24,7 +24,6 @@ public abstract class BookMapper {
     @Autowired
     private AuthorRepository authorRepository;
 
-
     @Mapping(source = "authorIds", target = "authors")
     public abstract Book map(BookCreationRequest request);
 
