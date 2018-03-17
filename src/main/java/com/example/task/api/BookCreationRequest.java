@@ -15,8 +15,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BookCreationRequest {
-    @NotNull
-    private Integer position;
 
     @NotNull
     private String title;

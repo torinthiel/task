@@ -12,8 +12,6 @@ import java.util.Set;
 public class BookSnapshot {
     private Long id;
 
-    private Integer position;
-
     private String title;
 
     private Set<Long> authorIds;
