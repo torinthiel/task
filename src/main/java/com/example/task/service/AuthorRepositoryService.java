@@ -2,6 +2,7 @@ package com.example.task.service;
 
 import com.example.task.api.AuthorCreationRequest;
 import com.example.task.api.AuthorSnapshot;
+import com.example.task.api.AuthorUpdateRequest;
 import com.example.task.mapper.AuthorMapper;
 import com.example.task.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,10 @@ public class AuthorRepositoryService implements AuthorService {
         return mapper.map(repository.save(mapper.map(request)));
     }
 
+    @Override
+    public AuthorSnapshot update(AuthorUpdateRequest request) {
+        return mapper.map(repository.save(mapper.map(request)));
+    }
     @Override
     public List<AuthorSnapshot> getAuthors() {
         return

@@ -2,6 +2,7 @@ package com.example.task.service;
 
 import com.example.task.api.AuthorCreationRequest;
 import com.example.task.api.AuthorSnapshot;
+import com.example.task.api.AuthorUpdateRequest;
 import com.example.task.model.Author;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,8 @@ import java.util.List;
 public interface AuthorService {
 
     AuthorSnapshot create(AuthorCreationRequest request);
+
+    AuthorSnapshot update(AuthorUpdateRequest request);
 
     List<AuthorSnapshot> getAuthors();
 
