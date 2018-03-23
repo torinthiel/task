@@ -2,6 +2,7 @@ package com.example.task.controller;
 
 import com.example.task.api.BookCreationRequest;
 import com.example.task.api.BookSnapshot;
+import com.example.task.api.BookUpdateRequest;
 import com.example.task.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,9 @@ public class BookController {
 
     @PostMapping
     public BookSnapshot create(@RequestBody BookCreationRequest request) { return bookService.create(request); }
+
+    @PutMapping
+    public BookSnapshot update(@RequestBody BookUpdateRequest request) { return bookService.update(request); }
 
     @DeleteMapping(value = "/{id}" )
     public void delete(@PathVariable Long id) {

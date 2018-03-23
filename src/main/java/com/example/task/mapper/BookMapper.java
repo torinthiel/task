@@ -1,9 +1,8 @@
 package com.example.task.mapper;
 
-import com.example.task.api.AuthorCreationRequest;
-import com.example.task.api.AuthorSnapshot;
 import com.example.task.api.BookCreationRequest;
 import com.example.task.api.BookSnapshot;
+import com.example.task.api.BookUpdateRequest;
 import com.example.task.model.Author;
 import com.example.task.model.Book;
 import com.example.task.repository.AuthorRepository;
@@ -27,6 +26,9 @@ public abstract class BookMapper {
     @Mapping(source = "authorIds", target = "authors")
     public abstract Book map(BookCreationRequest request);
 
+    @Mapping(source = "authorIds", target = "authors")
+    public abstract Book map(BookUpdateRequest request);
+
     public Set<Author> map(List<Long> ids) {
         return new HashSet<Author>(authorRepository.findAllById(ids));
     }
@@ -37,6 +39,4 @@ public abstract class BookMapper {
     public Set<Long> map(Set<Author> authors) {
         return authors.stream().map(a -> a.getId()).collect(Collectors.toSet());
     }
-
-
 }

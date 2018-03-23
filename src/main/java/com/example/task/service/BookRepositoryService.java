@@ -2,6 +2,7 @@ package com.example.task.service;
 
 import com.example.task.api.BookCreationRequest;
 import com.example.task.api.BookSnapshot;
+import com.example.task.api.BookUpdateRequest;
 import com.example.task.mapper.BookMapper;
 import com.example.task.model.Book;
 import com.example.task.repository.BookRepository;
@@ -34,7 +35,12 @@ public class BookRepositoryService implements BookService {
     @Override
     public BookSnapshot create(BookCreationRequest request) {
         return bookMapper.map(bookRepository.save(bookMapper.map(request)));
-   }
+    }
+
+    @Override
+    public BookSnapshot update(BookUpdateRequest request) {
+        return bookMapper.map(bookRepository.save(bookMapper.map(request)));
+    }
 
     @Override
     public void delete(@NotNull Long id) {
