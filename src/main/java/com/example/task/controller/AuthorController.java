@@ -3,7 +3,6 @@ package com.example.task.controller;
 import com.example.task.api.AuthorCreationRequest;
 import com.example.task.api.AuthorSnapshot;
 import com.example.task.api.AuthorUpdateRequest;
-import com.example.task.model.Author;
 import com.example.task.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
