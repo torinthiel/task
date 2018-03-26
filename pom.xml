@@ -22,6 +22,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<springfox.swagger.version>2.6.0</springfox.swagger.version>
+		<springfox.swagger.ui.version>2.6.0</springfox.swagger.ui.version>
+		<mapstruct.version>1.0.0.Final</mapstruct.version>
+		<mapstruct.processor.version>1.0.0.Final</mapstruct.processor.version>
+		<maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
 	</properties>
 
 	<dependencies>
@@ -57,27 +62,25 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
-			<version>2.6.0</version>
+			<version>${springfox.swagger.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.6.0</version>
+			<version>${springfox.swagger.ui.version}</version>
 			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
-			<version>1.0.0.Final</version>
+			<version>${mapstruct.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct-processor</artifactId>
-			<version>1.0.0.Final</version>
+			<version>${mapstruct.processor.version}</version>
 		</dependency>
-
-
 	</dependencies>
 
 	<build>
@@ -89,20 +92,20 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.5.1</version>
+				<version>${maven.compiler.plugin.version}</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.16.20</version>
+							<version>${lombok.version}</version>
 						</path>
 						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct-processor</artifactId>
-							<version>1.0.0.Final</version>
+							<version>${mapstruct.processor.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
@@ -110,6 +113,4 @@
 
 		</plugins>
 	</build>
-
-
 </project>
