@@ -4,15 +4,14 @@ import com.example.task.api.BookCreationRequest;
 import com.example.task.api.BookSnapshot;
 import com.example.task.api.BookUpdateRequest;
 import com.example.task.mapper.BookMapper;
-import com.example.task.model.Book;
 import com.example.task.repository.BookRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -28,8 +27,8 @@ public class BookRepositoryService implements BookService {
     }
 
     @Override
-    public List<BookSnapshot> getBooks() {
-       return bookRepository.findAll().stream().map(b -> bookMapper.map(b)).collect(Collectors.toList());
+    public Page<BookSnapshot> getBooks(Pageable pageable) {
+        return bookRepository.findAll(pageable).map(c -> bookMapper.map(c));
     }
 
     @Override

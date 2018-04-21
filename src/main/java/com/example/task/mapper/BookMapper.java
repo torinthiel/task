@@ -39,4 +39,6 @@ public abstract class BookMapper {
     public Set<Long> map(Set<Author> authors) {
         return authors.stream().map(a -> a.getId()).collect(Collectors.toSet());
     }
+
+
 }
