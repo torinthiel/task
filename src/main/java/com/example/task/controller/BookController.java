@@ -13,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value="/books")
+@RequestMapping(value = "/books")
 public class BookController {
 
     private BookService bookService;
@@ -40,12 +40,16 @@ public class BookController {
     }
 
     @PostMapping
-    public BookSnapshot create(@RequestBody BookCreationRequest request) { return bookService.create(request); }
+    public BookSnapshot create(@RequestBody BookCreationRequest request) {
+        return bookService.create(request);
+    }
 
     @PutMapping
-    public BookSnapshot update(@RequestBody BookUpdateRequest request) { return bookService.update(request); }
+    public BookSnapshot update(@RequestBody BookUpdateRequest request) {
+        return bookService.update(request);
+    }
 
-    @DeleteMapping(value = "/{id}" )
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Long id) {
         bookService.delete(id);
     }
