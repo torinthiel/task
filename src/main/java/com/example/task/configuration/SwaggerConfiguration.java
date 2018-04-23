@@ -26,8 +26,7 @@ public class SwaggerConfiguration {
                 .apis(RequestHandlerSelectors.any())
                 .paths(Predicates.or(
                         PathSelectors.ant("/books/**"),
-                        PathSelectors.ant("/authors/**"),
-                        PathSelectors.ant("/comics/**")))
+                        PathSelectors.ant("/authors/**")))
                 .build();
     }
     private ApiInfo apiInfo() {
